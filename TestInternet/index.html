@@ -1,0 +1,55 @@
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="main.css">
+  <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+</head>
+<body>
+<h1 id="peerId"></h1>
+<label for="connect-to">Connect to:</label>
+<input type="text" id="connect-to">
+<button type="button" onClick="connect()">Connect</button>
+<div id="inputs">
+<button type="button" onClick="start()">Start</button>
+</div>
+
+<div class="gameContainer">
+  <canvas class="canvas" width="700" height="300"></canvas>
+
+  <div id="gameOverlayPreCon">
+    <p id="textGameOverlay" style="text-align: center">Warte das ein Spieler sich verbindet oder<br>das Sie sich mit einem Verbinden!</p>
+  </div>
+
+  <div id="gameOverlayAfCon">
+    <label for="connect-as">Connect as:</label>
+    <input type="text" id="connect-as">
+    <button type="button" onClick="setName()">Senden</button>
+  </div>
+
+  <div id="almostDeadGradient"></div>
+
+  <div id="gameOver" onclick="removeDeathScreen()">
+    <p id="textGameOver" style="text-align: center"></p>
+  </div>
+</div>
+<input type="range" id="scaleInput" value="2" min="1" max="3" onchange="scaleGame();">
+
+</body>
+<script src="js/peerStuff.js"></script>
+<script src="js/functions.js"></script>
+<script src="js/classes.js"></script>
+<script src="js/keyInput.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+  let scaleValue = document.getElementById('scaleInput').value;
+  document.querySelector('.gameContainer').style.scale = scaleValue;
+  function scaleGame()
+  {
+    let scaleValue = document.getElementById('scaleInput').value;
+    document.querySelector('.gameContainer').style.scale = scaleValue;
+  }
+</script>
+</html>

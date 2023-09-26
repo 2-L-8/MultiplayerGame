@@ -1,0 +1,123 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(126, 126, 126);
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+.gameContainer {
+    position: relative;
+    width: 700px;
+    height: 300px;
+    margin: 0 auto;
+    outline: 1px solid red;
+    transform: translateY(50%);
+    background-image: url("background.gif");
+    background-size: cover;
+    /*animation: smashAttack 0.2s forwards;*/
+}
+
+.gameContainer canvas {
+    image-rendering: pixelated;
+    backdrop-filter: blur(1px);
+}
+
+#scaleInput {
+    position: absolute;
+    z-index: 100;
+    top: 90%;
+    left: 90%;
+    height: 5%;
+    width: 10%;
+}
+
+@keyframes smashAttack {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    25% {
+        background-position: 0% 5%;
+    }
+
+    50% {
+        background-position: 0% 1%;
+    }
+
+    75% {
+        background-position: 0% 5%;
+    }
+
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+#inputs {
+    display: none;
+}
+
+#gameOverlayPreCon {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    transform: translateY(-100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+#gameOverlayAfCon {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    transform: translateY(-100%);
+    justify-content: center;
+    align-items: center;
+    color: white;
+    display: none;
+}
+
+#gameOver {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    transform: translateY(-100%);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+#almostDeadGradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background: rgb(255,0,0);
+    background: linear-gradient(90deg, rgba(255,0,0,0.6306897759103641) 0%, rgba(235,18,18,0.14889705882352944) 10%, rgba(223,29,29,0) 50%, rgba(255,0,0,0.14889705882352944) 90%, rgba(255,0,0,0.6250875350140056) 100%);
+    animation: pulseRed infinite linear forwards 1s;
+}
+
+@keyframes pulseRed {
+    0% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 0.6;
+    }
+}
